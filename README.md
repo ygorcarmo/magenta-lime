@@ -1,2 +1,2 @@
-# magenta-lime
-Practical CSS Layouts
+# Magenta Lime
+This is a vite preact webapp containing my learnings form the CSS Grid & Flexbox for Responsive Layouts tought by Jen Kramer at [FronEndMasters](https://frontendmasters.com/). Please give the course [repo](https://github.com/jen4web/fem-practical-css-layouts/) a U+2B50 and please have a look at the [course](https://frontendmasters.com/courses/css-layouts/) as well, and big thanks to [Mark Grabanski](https://github.com/1Marc) for the amazing learning platform.
