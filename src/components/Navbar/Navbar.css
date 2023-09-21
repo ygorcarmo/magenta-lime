@@ -1,0 +1,134 @@
+#navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    font-family: var(--cursive);
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+#navbar ul {
+    list-style: none;
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+#navbar h1 {
+    font-size: var(--h3);
+    margin: 0;
+}
+
+#navbar h1 a:hover {
+    color: var(--lime);
+}
+
+#navbar a {
+    display: block;
+    text-decoration: none;
+    color: var(--white);
+}
+
+#navbar>nav a:focus,
+#navbar>nav a:hover {
+    color: var(--magenta);
+}
+
+.bandname {
+    padding-left: 1rem;
+    display: none;
+}
+
+/* where the hamburger button displays */
+@media (max-width: 799px) {
+    #navbar {
+        padding: 0 1rem;
+    }
+
+    #mainMenuOpen {
+        display: block;
+        font-size: 2rem;
+        line-height: 1;
+        border: 0;
+        background: transparent;
+        color: var(--magenta);
+    }
+
+    /* hamburger icon itself - unicode character */
+    #mainMenuOpen::after {
+        content: "\2630";
+    }
+
+    /* style the navbar offscreen - position the box on screen */
+    #mainMenuOpen+nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        display: flex;
+        padding-top: 100px;
+        justify-content: center;
+        opacity: 0;
+        background: #000d;
+        transition: left 0s 0.5s, opacity 0.5s;
+    }
+
+    /* transition from off screen to onscreen navbar */
+    #mainMenuOpen:focus+nav,
+    #mainMenuOpen+nav:focus-within {
+        left: 0;
+        opacity: 1;
+        transition: left 0s, opacity 0.5s;
+    }
+
+    /* box containing links - transition onscreen */
+    #mainMenuOpen+nav ul {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        position: relative;
+        top: -50vh;
+        min-width: 50vw;
+        max-width: 100vw;
+        overflow: hidden;
+        transition: top 0.5s;
+    }
+
+    /* transition unordered list to the screen */
+    #mainMenuOpen:focus+nav ul,
+    #mainMenuOpen+nav:focus-within ul {
+        top: 0;
+    }
+
+    /* link styles */
+    #navbar>nav a {
+        display: block;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    /* close button */
+    #mainMenuOpen+nav ul::after {
+        content: "";
+        background: url("https://assets.codepen.io/296057/fem-close.svg") no-repeat center;
+        height: 2rem;
+        width: 2rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+/* where the band name displays */
+@media (min-width: 500px) {
+    .bandname {
+        display: inline;
+    }
+}
